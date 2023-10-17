@@ -1,12 +1,14 @@
 import { Grid } from "@mui/material";
 import DataEntry from "./DataEntry";
-import { useState } from "react";
 
 const Body = () => {
+	const handleDataSubmission = (data) => {
+		// Do something with the data, e.g., set it in the state or call a function
+	};
+
 	return (
 		<Grid container justifyContent={"space-evenly"}>
 			<Grid item xs={10} md={5} textAlign={"center"} marginTop={"4%"}>
-				{/* Add the Forms here */}
 				<DataEntry />
 			</Grid>
 			<Grid item xs={10} md={5} textAlign={"center"}>

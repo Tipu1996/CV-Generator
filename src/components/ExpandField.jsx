@@ -15,7 +15,12 @@ const ExpandField = ({ title, requiredInfo, handleChange }) => {
 				expandIcon={<ExpandMore />}
 				aria-label="Expand"
 				aria-controls="-content"
-				id="-header">
+				id="-header"
+				sx={{
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
+				}}>
 				<Typography variant="h5">{title}</Typography>
 			</AccordionSummary>
 			<AccordionDetails>
