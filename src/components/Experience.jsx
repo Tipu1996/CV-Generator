@@ -38,6 +38,13 @@ const requiredInfo = [
 ];
 
 const Experience = ({ experience, setExperience, addExperience }) => {
+	const handleChange = (fieldName, value) => {
+		setExperience((prevExperience) => ({
+			...prevExperience,
+			[fieldName]: value,
+		}));
+	};
+	console.log(experience);
 	return (
 		<Box fontStyle={{ marginTop: "4%" }}>
 			<Accordion>

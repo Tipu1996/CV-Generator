@@ -44,6 +44,13 @@ const requiredInfo = [
 ];
 
 const Education = ({ education, setEducation, addEducation }) => {
+	const handleChange = (fieldName, value) => {
+		setEducation((prevEducation) => ({
+			...prevEducation,
+			[fieldName]: value,
+		}));
+	};
+	console.log(education);
 	return (
 		<Box fontStyle={{ marginTop: "4%" }}>
 			<Accordion>

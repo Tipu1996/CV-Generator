@@ -59,7 +59,6 @@ const PersonalInfo = ({ personalInfo, setPersonalInfo }) => {
 		}));
 	};
 	console.log(personalInfo);
-
 	return (
 		<>
 			<Accordion>
