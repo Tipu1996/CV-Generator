@@ -1,13 +1,6 @@
-import {
-	TextField,
-	Typography,
-	Stack,
-	Accordion,
-	AccordionSummary,
-	AccordionDetails,
-	Box,
-} from "@mui/material";
-import { ExpandMore } from "@mui/icons-material";
+import { Box } from "@mui/material";
+import ExpandField from "./ExpandField";
+import { useState } from "react";
 
 const requiredInfo = [
 	{
@@ -37,48 +30,43 @@ const requiredInfo = [
 	},
 ];
 
-const Experience = ({ experience, setExperience, addExperience }) => {
+const Experience = () => {
+	const [experience, setExperience] = useState({
+		position: null,
+		company: null,
+		startYear: null,
+		endYear: null,
+		jobDescription: null,
+	});
+
+	const addExperience = () => {
+		setExperience([
+			...experience,
+			{
+				position: null,
+				company: null,
+				startYear: null,
+				endYear: null,
+				jobDescription: null,
+			},
+		]);
+	};
+
 	const handleChange = (fieldName, value) => {
 		setExperience((prevExperience) => ({
 			...prevExperience,
 			[fieldName]: value,
 		}));
 	};
+
 	console.log(experience);
 	return (
 		<Box fontStyle={{ marginTop: "4%" }}>
-			<Accordion>
-				<AccordionSummary
-					expandIcon={<ExpandMore />}
-					aria-label="Expand"
-					aria-controls="-content"
-					id="-header">
-					<Typography variant="h5">Work Experience</Typography>
-				</AccordionSummary>
-				<AccordionDetails>
-					<Stack spacing={6}>
-						{requiredInfo.map((item, index) =>
-							item.multiLine === true ? (
-								<TextField
-									key={index}
-									id="outlined-basic"
-									label={item.label}
-									variant="outlined"
-									multiline
-									minRows={4}
-								/>
-							) : (
-								<TextField
-									key={index}
-									id="outlined-basic"
-									label={item.label}
-									variant="outlined"
-								/>
-							)
-						)}
-					</Stack>
-				</AccordionDetails>
-			</Accordion>
+			<ExpandField
+				title={"Experience"}
+				requiredInfo={requiredInfo}
+				handleChange={handleChange}
+			/>
 		</Box>
 	);
 };

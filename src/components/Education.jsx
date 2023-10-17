@@ -1,13 +1,6 @@
-import {
-	TextField,
-	Typography,
-	Stack,
-	Accordion,
-	AccordionSummary,
-	AccordionDetails,
-	Box,
-} from "@mui/material";
-import { ExpandMore } from "@mui/icons-material";
+import { Box } from "@mui/material";
+import ExpandField from "./ExpandField";
+import { useState } from "react";
 
 const requiredInfo = [
 	{
@@ -43,7 +36,30 @@ const requiredInfo = [
 	},
 ];
 
-const Education = ({ education, setEducation, addEducation }) => {
+const Education = () => {
+	const [education, setEducation] = useState({
+		school: null,
+		city: null,
+		field: null,
+		startingYear: null,
+		endingYear: null,
+		gpa: null,
+	});
+
+	const addEducation = () => {
+		setEducation([
+			...education,
+			{
+				school: null,
+				city: null,
+				field: null,
+				startingYear: null,
+				endingYear: null,
+				gpa: null,
+			},
+		]);
+	};
+
 	const handleChange = (fieldName, value) => {
 		setEducation((prevEducation) => ({
 			...prevEducation,
@@ -53,38 +69,11 @@ const Education = ({ education, setEducation, addEducation }) => {
 	console.log(education);
 	return (
 		<Box fontStyle={{ marginTop: "4%" }}>
-			<Accordion>
-				<AccordionSummary
-					expandIcon={<ExpandMore />}
-					aria-label="Expand"
-					aria-controls="-content"
-					id="-header">
-					<Typography variant="h5">Education</Typography>
-				</AccordionSummary>
-				<AccordionDetails>
-					<Stack spacing={6}>
-						{requiredInfo.map((item, index) =>
-							item.multiLine === true ? (
-								<TextField
-									key={index}
-									id="outlined-basic"
-									label={item.label}
-									variant="outlined"
-									multiline
-									minRows={4}
-								/>
-							) : (
-								<TextField
-									key={index}
-									id="outlined-basic"
-									label={item.label}
-									variant="outlined"
-								/>
-							)
-						)}
-					</Stack>
-				</AccordionDetails>
-			</Accordion>
+			<ExpandField
+				title={"Education"}
+				requiredInfo={requiredInfo}
+				handleChange={handleChange}
+			/>
 		</Box>
 	);
 };

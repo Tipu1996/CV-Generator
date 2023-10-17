@@ -1,12 +1,5 @@
-import {
-	TextField,
-	Typography,
-	Stack,
-	Accordion,
-	AccordionSummary,
-	AccordionDetails,
-} from "@mui/material";
-import { ExpandMore } from "@mui/icons-material";
+import { useState } from "react";
+import ExpandField from "./ExpandField";
 
 const requiredInfo = [
 	{
@@ -51,7 +44,18 @@ const requiredInfo = [
 	},
 ];
 
-const PersonalInfo = ({ personalInfo, setPersonalInfo }) => {
+const PersonalInfo = () => {
+	const [personalInfo, setPersonalInfo] = useState({
+		firstName: null,
+		lastName: null,
+		dateOfBirth: null,
+		gender: null,
+		phoneNumber: null,
+		emailAddress: null,
+		linkedIn: null,
+		aboutMe: null,
+	});
+
 	const handleChange = (fieldName, value) => {
 		setPersonalInfo((prevPersonalInfo) => ({
 			...prevPersonalInfo,
@@ -59,46 +63,14 @@ const PersonalInfo = ({ personalInfo, setPersonalInfo }) => {
 		}));
 	};
 	console.log(personalInfo);
+
 	return (
 		<>
-			<Accordion>
-				<AccordionSummary
-					expandIcon={<ExpandMore />}
-					aria-label="Expand"
-					aria-controls="-content"
-					id="-header">
-					<Typography variant="h5">Personal Details</Typography>
-				</AccordionSummary>
-				<AccordionDetails>
-					<Stack spacing={6}>
-						{requiredInfo.map((item, index) =>
-							item.multiLine === true ? (
-								<TextField
-									key={index}
-									id="outlined-basic"
-									label={item.label}
-									variant="outlined"
-									multiline
-									minRows={4}
-									onChange={(e) =>
-										handleChange(item.state, e.target.value)
-									}
-								/>
-							) : (
-								<TextField
-									key={index}
-									id="outlined-basic"
-									label={item.label}
-									variant="outlined"
-									onChange={(e) =>
-										handleChange(item.state, e.target.value)
-									}
-								/>
-							)
-						)}
-					</Stack>
-				</AccordionDetails>
-			</Accordion>
+			<ExpandField
+				title={"Personal Details"}
+				requiredInfo={requiredInfo}
+				handleChange={handleChange}
+			/>
 		</>
 	);
 };
