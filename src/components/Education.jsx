@@ -5,70 +5,54 @@ import {
 	Accordion,
 	AccordionSummary,
 	AccordionDetails,
+	Box,
 } from "@mui/material";
 import { ExpandMore } from "@mui/icons-material";
 
 const requiredInfo = [
 	{
-		state: "firstName",
-		label: "First Name",
+		state: "school",
+		label: "School",
 		multiLine: false,
 	},
 	{
-		state: "lastName",
-		label: "Last Name",
+		state: "city",
+		label: "City",
 		multiLine: false,
 	},
 	{
-		state: "dateOfBirth",
-		label: "Date of Birth",
+		state: "field",
+		label: "Field",
+		multiLine: false,
+	},
+
+	{
+		state: "startingYear",
+		label: "Starting Year",
 		multiLine: false,
 	},
 	{
-		state: "gender",
-		label: "Gender",
+		state: "endingYear",
+		label: "Starting Year",
 		multiLine: false,
 	},
 	{
-		state: "phoneNumber",
-		label: "Phone Number",
+		state: "gpa",
+		label: "GPA",
 		multiLine: false,
-	},
-	{
-		state: "emailAddress",
-		label: "Email Address",
-		multiLine: false,
-	},
-	{
-		state: "linkedIn",
-		label: "LinkedIn",
-		multiLine: false,
-	},
-	{
-		state: "aboutMe",
-		label: "About Me",
-		multiLine: true,
 	},
 ];
 
-const PersonalInfo = ({ personalInfo, setPersonalInfo }) => {
-	const handleChange = (fieldName, value) => {
-		setPersonalInfo((prevPersonalInfo) => ({
-			...prevPersonalInfo,
-			[fieldName]: value,
-		}));
-	};
-	console.log(personalInfo);
-
+const Education = ({ education, setEducation, addEducation }) => {
 	return (
-		<>
+		<Box fontStyle={{ marginTop: "4%" }}>
 			<Accordion>
 				<AccordionSummary
 					expandIcon={<ExpandMore />}
 					aria-label="Expand"
 					aria-controls="-content"
 					id="-header">
-					<Typography variant="h5">Personal Details</Typography>
+					<Typography variant="h5">Education</Typography>
 				</AccordionSummary>
 				<AccordionDetails>
 					<Stack spacing={6}>
@@ -81,9 +65,6 @@ const PersonalInfo = ({ personalInfo, setPersonalInfo }) => {
 									variant="outlined"
 									multiline
 									minRows={4}
-									onChange={(e) =>
-										handleChange(item.state, e.target.value)
-									}
 								/>
 							) : (
 								<TextField
@@ -91,17 +72,14 @@ const PersonalInfo = ({ personalInfo, setPersonalInfo }) => {
 									id="outlined-basic"
 									label={item.label}
 									variant="outlined"
-									onChange={(e) =>
-										handleChange(item.state, e.target.value)
-									}
 								/>
 							)
 						)}
 					</Stack>
 				</AccordionDetails>
 			</Accordion>
-		</>
+		</Box>
 	);
 };
 
-export default PersonalInfo;
+export default Education;

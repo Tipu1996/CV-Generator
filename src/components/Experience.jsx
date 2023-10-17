@@ -5,70 +5,48 @@ import {
 	Accordion,
 	AccordionSummary,
 	AccordionDetails,
+	Box,
 } from "@mui/material";
 import { ExpandMore } from "@mui/icons-material";
 
 const requiredInfo = [
 	{
-		state: "firstName",
-		label: "First Name",
+		state: "position",
+		label: "Position",
 		multiLine: false,
 	},
 	{
-		state: "lastName",
-		label: "Last Name",
+		state: "company",
+		label: "Company",
 		multiLine: false,
 	},
 	{
-		state: "dateOfBirth",
-		label: "Date of Birth",
+		state: "startYear",
+		label: "Start Year",
 		multiLine: false,
 	},
 	{
-		state: "gender",
-		label: "Gender",
+		state: "endYear",
+		label: "End Year",
 		multiLine: false,
 	},
 	{
-		state: "phoneNumber",
-		label: "Phone Number",
-		multiLine: false,
-	},
-	{
-		state: "emailAddress",
-		label: "Email Address",
-		multiLine: false,
-	},
-	{
-		state: "linkedIn",
-		label: "LinkedIn",
-		multiLine: false,
-	},
-	{
-		state: "aboutMe",
-		label: "About Me",
+		state: "jobDescription",
+		label: "Job Description",
 		multiLine: true,
 	},
 ];
 
-const PersonalInfo = ({ personalInfo, setPersonalInfo }) => {
-	const handleChange = (fieldName, value) => {
-		setPersonalInfo((prevPersonalInfo) => ({
-			...prevPersonalInfo,
-			[fieldName]: value,
-		}));
-	};
-	console.log(personalInfo);
-
+const Experience = ({ experience, setExperience, addExperience }) => {
 	return (
-		<>
+		<Box fontStyle={{ marginTop: "4%" }}>
 			<Accordion>
 				<AccordionSummary
 					expandIcon={<ExpandMore />}
 					aria-label="Expand"
 					aria-controls="-content"
 					id="-header">
-					<Typography variant="h5">Personal Details</Typography>
+					<Typography variant="h5">Work Experience</Typography>
 				</AccordionSummary>
 				<AccordionDetails>
 					<Stack spacing={6}>
@@ -81,9 +59,6 @@ const PersonalInfo = ({ personalInfo, setPersonalInfo }) => {
 									variant="outlined"
 									multiline
 									minRows={4}
-									onChange={(e) =>
-										handleChange(item.state, e.target.value)
-									}
 								/>
 							) : (
 								<TextField
@@ -91,17 +66,14 @@ const PersonalInfo = ({ personalInfo, setPersonalInfo }) => {
 									id="outlined-basic"
 									label={item.label}
 									variant="outlined"
-									onChange={(e) =>
-										handleChange(item.state, e.target.value)
-									}
 								/>
 							)
 						)}
 					</Stack>
 				</AccordionDetails>
 			</Accordion>
-		</>
+		</Box>
 	);
 };
 
-export default PersonalInfo;
+export default Experience;
