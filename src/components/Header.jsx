@@ -17,7 +17,7 @@ const Header = ({ theme, changeTheme }) => {
 					</Grid>
 					<Grid item>
 						<Typography variant="h6" ml={2}>
-							Portfolio
+							CV GENERATOR
 						</Typography>
 					</Grid>
 					<Grid item>

@@ -2,6 +2,7 @@ import { lightThemeOptions, darkThemeOptions } from "./theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { useState } from "react";
 import Header from "./components/Header";
+import Body from "./components/Body";
 
 const App = () => {
 	const [theme, setTheme] = useState("dark");
@@ -16,6 +17,7 @@ const App = () => {
 		>
 			<CssBaseline />
 			<Header theme={theme} changeTheme={changeTheme} />
+			<Body />
 		</ThemeProvider>
 	);
 };
