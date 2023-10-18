@@ -1,18 +1,13 @@
 import PersonalInfo from "./PersonalInfo";
 import Education from "./Education";
 import Experience from "./Experience";
-import Submit from "./Submit";
-import { Box } from "@mui/material";
 
-const DataEntry = () => {
+const DataEntry = ({ pushStatesUp }) => {
 	return (
 		<>
-			<PersonalInfo />
-			<Experience />
-			<Education />
-			<Box fontStyle={{ marginTop: "4%" }}>
-				<Submit />
-			</Box>
+			<PersonalInfo pushStatesUp={pushStatesUp} />
+			<Experience pushStatesUp={pushStatesUp} />
+			<Education pushStatesUp={pushStatesUp} />
 		</>
 	);
 };

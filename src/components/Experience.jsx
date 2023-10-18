@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import ExpandField from "./ExpandField";
 import { useState } from "react";
+import Submit from "./Submit";
 
 const requiredInfo = [
 	{
@@ -30,7 +31,7 @@ const requiredInfo = [
 	},
 ];
 
-const Experience = () => {
+const Experience = ({pushStatesUp}) => {
 	const [experience, setExperience] = useState({
 		position: null,
 		company: null,
@@ -59,7 +60,11 @@ const Experience = () => {
 		}));
 	};
 
-	console.log(experience);
+	const sendUp = () => {
+		pushStatesUp(experience, "experience");
+	};
+
+	// console.log(experience);
 	return (
 		<Box fontStyle={{ marginTop: "4%" }}>
 			<ExpandField
@@ -67,6 +72,7 @@ const Experience = () => {
 				requiredInfo={requiredInfo}
 				handleChange={handleChange}
 			/>
+			<Submit sendUp={sendUp} />
 		</Box>
 	);
 };

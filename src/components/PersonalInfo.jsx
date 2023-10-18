@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ExpandField from "./ExpandField";
+import Submit from "./Submit";
 
 const requiredInfo = [
 	{
@@ -44,7 +45,7 @@ const requiredInfo = [
 	},
 ];
 
-const PersonalInfo = () => {
+const PersonalInfo = ({pushStatesUp}) => {
 	const [personalInfo, setPersonalInfo] = useState({
 		firstName: null,
 		lastName: null,
@@ -62,7 +63,10 @@ const PersonalInfo = () => {
 			[fieldName]: value,
 		}));
 	};
-	console.log(personalInfo);
+	// console.log(personalInfo);
+	const sendUp = () => {
+		pushStatesUp(personalInfo, "personalInfo");
+	};
 
 	return (
 		<>
@@ -71,6 +75,7 @@ const PersonalInfo = () => {
 				requiredInfo={requiredInfo}
 				handleChange={handleChange}
 			/>
+			<Submit sendUp={sendUp} />
 		</>
 	);
 };
