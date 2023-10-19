@@ -45,8 +45,8 @@ const requiredInfo = [
 	},
 ];
 
-const PersonalInfo = ({pushStatesUp}) => {
-	const [personalInfo, setPersonalInfo] = useState({
+const PersonalInput = ({ pushStatesUp }) => {
+	const [personalInput, setPersonalInput] = useState({
 		firstName: null,
 		lastName: null,
 		dateOfBirth: null,
@@ -58,14 +58,14 @@ const PersonalInfo = ({pushStatesUp}) => {
 	});
 
 	const handleChange = (fieldName, value) => {
-		setPersonalInfo((prevPersonalInfo) => ({
-			...prevPersonalInfo,
+		setPersonalInput((prevPersonalInput) => ({
+			...prevPersonalInput,
 			[fieldName]: value,
 		}));
 	};
-	// console.log(personalInfo);
+
 	const sendUp = () => {
-		pushStatesUp(personalInfo, "personalInfo");
+		pushStatesUp(personalInput, "personalInput");
 	};
 
 	return (
@@ -80,4 +80,4 @@ const PersonalInfo = ({pushStatesUp}) => {
 	);
 };
 
-export default PersonalInfo;
+export default PersonalInput;

@@ -42,8 +42,8 @@ const Education = ({ pushStatesUp }) => {
 		school: null,
 		city: null,
 		field: null,
-		startingYear: null,
-		endingYear: null,
+		startYear: null,
+		endYear: null,
 		gpa: null,
 	});
 

@@ -1,11 +1,11 @@
 import { Grid } from "@mui/material";
 import DataEntry from "./DataEntry";
 import { useState } from "react";
-// import Submit from "./Submit";
+import CvBody from "./CvBody";
 
 const Body = () => {
 	const [formData, setFormData] = useState({
-		personalInfo: {},
+		personalInput: {},
 		experience: {},
 		education: {},
 	});
@@ -16,7 +16,7 @@ const Body = () => {
 			[category]: data,
 		}));
 	};
-	console.log(formData);
+	// console.log(formData);
 
 	return (
 		<Grid container justifyContent={"space-evenly"}>
@@ -24,8 +24,8 @@ const Body = () => {
 				<DataEntry pushStatesUp={pushStatesUp} />
 				{/* <Submit /> */}
 			</Grid>
-			<Grid item xs={10} md={5} textAlign={"center"}>
-				{/* Add the CV Page here */}
+			<Grid item xs={10} md={5}>
+				<CvBody formData={formData} />
 			</Grid>
 		</Grid>
 	);
