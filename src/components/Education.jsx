@@ -21,12 +21,12 @@ const requiredInfo = [
 	},
 
 	{
-		state: "startingYear",
+		state: "startYear",
 		label: "Starting Year",
 		multiLine: false,
 	},
 	{
-		state: "endingYear",
+		state: "endYear",
 		label: "Starting Year",
 		multiLine: false,
 	},

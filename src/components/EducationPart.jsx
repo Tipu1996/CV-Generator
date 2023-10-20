@@ -2,23 +2,24 @@ import { Box, Divider } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 
-const EducationPart = () => {
-	const [experience, setExperience] = useState({
-		position: "Trainee",
-		company: "SCO, Rawalpindi Pakistan",
-		startYear: 2019,
-		endYear: 2022,
-		jobDescription:
-			"Network Manager Network Manager Network Manager Network Manager Network Manager Network Manager Network Manager Network Manager Network Manager",
-	});
-	const [education, setEducation] = useState({
-		school: "School of Self Learning and Non Tutorial Loop",
-		city: "Housten, Texas",
-		field: "TraineeShip",
-		startYear: 2022,
-		endYear: 2023,
-		gpa: "3/3",
-	});
+const EducationPart = ({ education }) => {
+	// const [experience, setExperience] = useState({
+	// 	position: "Trainee",
+	// 	company: "SCO, Rawalpindi Pakistan",
+	// 	startYear: 2019,
+	// 	endYear: 2022,
+	// 	jobDescription:
+	// 		"Network Manager Network Manager Network Manager Network Manager Network Manager Network Manager Network Manager Network Manager Network Manager",
+	// });
+	// const [education, setEducation] = useState({
+	// 	school: "School of Self Learning and Non Tutorial Loop",
+	// 	city: "Housten, Texas",
+	// 	field: "TraineeShip",
+	// 	startYear: 2022,
+	// 	endYear: 2023,
+	// 	gpa: "3/3",
+	// });
+	console.log(education);
 	return (
 		<Box>
 			<Typography
@@ -53,7 +54,7 @@ const EducationPart = () => {
 					marginBottom: "2%",
 				}}
 			/>
-			<Typography variant="body1">{experience.jobDescription}</Typography>
+			<Typography variant="body1">{education.gpa}</Typography>
 		</Box>
 	);
 };

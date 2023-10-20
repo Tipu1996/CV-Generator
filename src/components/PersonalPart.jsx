@@ -2,18 +2,18 @@ import { Box, Divider } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 
-const PersonalPart = () => {
-	const [personalInput, setPersonalInput] = useState({
-		firstName: "Tipu",
-		lastName: "Majak",
-		dateOfBirth: "31/03/1986",
-		gender: "Male",
-		phoneNumber: "0449561242",
-		emailAddress: "ifsang.hasfa@gmail.com",
-		linkedIn: "linkedin.com/9721ngodn",
-		aboutMe:
-			"lorem ipsum sectum lorem ipsum sectum lorem ipsum sectum lorem ipsum sectum lorem ipsum sectum lorem ipsum sectum lorem ipsum sectum lorem ipsum sectum lorem ipsum sectum lorem ipsum sectum lorem ipsum sectum lorem ipsum sectum lorem ipsum sectum",
-	});
+const PersonalPart = ({ personalInput }) => {
+	// const [personalInput, setPersonalInput] = useState({
+	// 	firstName: "Tipu",
+	// 	lastName: "Majak",
+	// 	dateOfBirth: "31/03/1986",
+	// 	gender: "Male",
+	// 	phoneNumber: "0449561242",
+	// 	emailAddress: "ifsang.hasfa@gmail.com",
+	// 	linkedIn: "linkedin.com/9721ngodn",
+	// 	aboutMe:
+	// 		"lorem ipsum sectum lorem ipsum sectum lorem ipsum sectum lorem ipsum sectum lorem ipsum sectum lorem ipsum sectum lorem ipsum sectum lorem ipsum sectum lorem ipsum sectum lorem ipsum sectum lorem ipsum sectum lorem ipsum sectum lorem ipsum sectum",
+	// });
 	return (
 		<Box>
 			<Typography

@@ -2,15 +2,15 @@ import { Box, Divider } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 
-const ExperiencePart = () => {
-	const [experience, setExperience] = useState({
-		position: "Trainee",
-		company: "SCO, Rawalpindi Pakistan",
-		startYear: 2019,
-		endYear: 2022,
-		jobDescription:
-			"Network Manager Network Manager Network Manager Network Manager Network Manager Network Manager Network Manager Network Manager Network Manager",
-	});
+const ExperiencePart = ({ experience }) => {
+	// const [experience, setExperience] = useState({
+	// 	position: "Trainee",
+	// 	company: "SCO, Rawalpindi Pakistan",
+	// 	startYear: 2019,
+	// 	endYear: 2022,
+	// 	jobDescription:
+	// 		"Network Manager Network Manager Network Manager Network Manager Network Manager Network Manager Network Manager Network Manager Network Manager",
+	// });
 	return (
 		<Box>
 			<Typography
